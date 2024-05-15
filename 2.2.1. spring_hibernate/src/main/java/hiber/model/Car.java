@@ -1,6 +1,13 @@
 package hiber.model;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "car")
@@ -15,7 +22,9 @@ public class Car {
     @OneToOne(mappedBy = "car")
     private User user;
 
-    public Car(){}
+    public Car() {
+    }
+
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
@@ -55,10 +64,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", model='" + model + '\'' +
-                ", series=" + series +
-                '}';
+        return "Car{" + "id=" + id + ", model='" + model + '\'' + ", series=" + series + '}';
     }
 }
